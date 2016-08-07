@@ -357,14 +357,14 @@ class CA:
         dirPrivate = "private"
 
         if not os.path.exists(dirPrivate):
-            os.mkdirs(dirPrivate, 0700)
+            os.makedirs(dirPrivate, 0700)
             changes.append("Created private directory.")
             changed = True
 
         dirCerts = "certs"
 
         if not os.path.exists(dirCerts):
-            os.mkdir(dirCerts)
+            os.makedir(dirCerts)
             changes.append("Created certs directory.")
             changed = True
 

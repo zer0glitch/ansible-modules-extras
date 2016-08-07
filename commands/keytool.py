@@ -204,7 +204,8 @@ class Keytool:
             except Exception:
                 success = False
                 errors.append("Could not create store.")
-            finally:
+
+            if not success:
                 # Remove the password
                 if os.path.exists(storepass_path):
                     os.remove(storepass_path)

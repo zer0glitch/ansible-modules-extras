@@ -371,15 +371,17 @@ class Certificate:
     def create_key_cert_PEM(self):
         keyPem = self.read_file(self.get_target_path() + "/" + self.certname + ".key.pem")
         cerPem = self.read_file(self.get_target_path() + "/" + self.certname + ".cert.pem.pub")
-        with open(self.get_target_path() + "/" + self.certname + ".keycert.pem", "w") as kcFile:
-            kcFile.write(keyPem)
-            kcFile.write("\n")
-            kcFile.write(cerPem)
+        kcFile =  open(self.get_target_path() + "/" + self.certname + ".keycert.pem", "w")
+        kcFile.write(keyPem)
+        kcFile.write("\n")
+        kcFile.write(cerPem)
+        kcFile.close()
 
     def export_key_as_PKCS12(self):
         passwordFile = self.get_target_path() + "/" +  self.certname + ".password"
-        with open(passwordFile, "w") as f:
-            f.write(self.p12password)
+        f =  open(passwordFile, "w"):
+        f.write(self.p12password)
+        f.close()
         cmd = TMPL_PKCS12.format(self.certname, passwordFile, self.cadir)
         self.execute_command(cmd)
         os.remove(passwordFile)
