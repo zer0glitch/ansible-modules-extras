@@ -359,7 +359,11 @@ class Certificate:
     def sign_certificate_request(self, curdir):
         os.chdir("..")
         cmd = ""
-        ext = "server_ca_extensions -policy policy_anything " if self.isServerCert else "usr_cert -policy policy_anything"
+        ext = "" 
+        if self.isServerCert:
+          ext = "server_ca_extensions -policy policy_anything " 
+        else:
+          ext = "usr_cert -policy policy_anything "
         cmd = TMPL_SIGN_REQ.format(self.get_openssl_cnf(), self.get_target_path(), self.certname, ext)
         self.execute_command(cmd)
         os.chdir(curdir)
