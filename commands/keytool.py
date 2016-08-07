@@ -53,7 +53,7 @@ options:
     choices: [ "present", "absent" ]
   certtype:
     description:
-      - The certificate type.  Values: keystore or truststore. Default is C(truststore).
+      - The certificate type.  Values keystore or truststore. Default is C(truststore).
     required: false
     default: truststore
     choices: [ "keystore", "truststore" ]
