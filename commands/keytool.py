@@ -200,9 +200,9 @@ class Keytool:
                         success=False
                         errors.append("Could not find cert for host: {0}".format(hostcert))
 
-            except Exception as e:
+            except Exception:
                 success = False
-                errors.append(e.message)
+                errors.append("Could not create store.")
 
             finally:
                 # Remove the password

@@ -318,8 +318,8 @@ class CA:
         if not os.path.exists(dir):
             try:
                 os.mkdir(dir)
-            except Exception as e:
-                return dict(success=False, msg=e)
+            except Exception:
+                return dict(success=False, msg="Could not make directory: " + dir)
         return dict(success=True)
 
     def execute_command(self, cmd):
