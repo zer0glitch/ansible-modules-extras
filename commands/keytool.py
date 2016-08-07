@@ -49,16 +49,26 @@ options:
     description:
       - To create or remove the CA. Present or absent: default is present.
     required: false
+    default: present
+    choices: [ "present", "absent" ]
   certtype:
     description:
       - The certificate type.  Values: keystore or truststore
     required: false
+    default: truststore
+    choices: [ "keystore", "truststore" ]
   src_password:
     description:
       - Source password for the PKCS12 certificate that is being imported
     required: false
 requirements: [ keytool ]
 '''
+
+RETURN = '''
+output:
+  path: location of store created
+'''
+
 
 EXAMPLES = '''
 - name: Create a java server trustore and trust the server hosts

@@ -43,11 +43,18 @@ options:
     description:
       - To create or remove the CA. Present or absent: default is present.
     required: false
+    default: present
+    choices: [ "present", "absent" ]
   force:
     description:
       - This will overwrite the CA
     required: false
 requirements: [ openssl ]
+'''
+
+RETURN = '''
+output:
+  description: creation or removal of ca
 '''
 
 EXAMPLES = '''

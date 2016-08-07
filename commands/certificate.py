@@ -49,12 +49,20 @@ options:
     description:
       - To create or remove the CA. Present or absent: default is present.
     required: false
+    default: present
+    choices: [ "present", "absent" ]
   subjectAltNames:
     description:
       - Alternative names for the certificate.  Can be DNS, IP, etc.
     required: false
 requirements: [ openssl ]
 '''
+
+RETURN = '''
+output:
+  path: location certificate created
+'''
+
 
 EXAMPLES = '''
 - name: Create a Server Cert
@@ -560,3 +568,7 @@ def main():
     else:
         module.exit_json(**isValid)
 
+# import module snippets
+from ansible.module_utils.basic import *
+
+main()
