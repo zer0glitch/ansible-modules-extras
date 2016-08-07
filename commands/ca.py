@@ -1,16 +1,35 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# (c) 2015, Matt Martz <matt@sivel.net>
+#
+# This file is part of Ansible
+#
+# Ansible is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Ansible is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
+
 
 DOCUMENTATION = '''
 ---
 module: ca
 short_description: Manages CA certificates
 description:
-    - Create, update, and delete for a CA
+    - Create a CA
+    - Remove a CA
 author:
     - "Richard Clayton (@rclayton-the-terrible)"
     - "James Whetsell (@zer0glitch)"
+version_added: 2.2
 options:
   certdir:
     description:
@@ -425,7 +444,7 @@ def main():
     else:
         module.exit_json(**isValid)
 
+# import module snippets
+from ansible.module_utils.basic import *
 
-# this is magic, see lib/ansible/module_common.py
-#<<INCLUDE_ANSIBLE_MODULE_COMMON>>
 main()
