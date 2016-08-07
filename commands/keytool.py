@@ -163,8 +163,9 @@ class Keytool:
         if not os.path.exists(truststore_path):
 
             # Write the password out to file.
-            with open(storepass_path, "w") as storepass:
-                storepass.write(self.store_password)
+            storepass = open(storepass_path, "w")
+            storepass.write(self.store_password)
+            storepass.close()
 
             try:
 

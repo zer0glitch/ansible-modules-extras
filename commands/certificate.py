@@ -341,8 +341,8 @@ class Certificate:
         call(cmd, shell=True, stdout=DEV_NULL, stderr=DEV_NULL)
 
     def read_file(self, filename):
-        with open(filename, "r") as f:
-            return f.read()
+        f = open(filename, "r")
+        return f.read()
 
     def ensure_directory_exists(self, dir):
         if not os.path.exists(dir):
