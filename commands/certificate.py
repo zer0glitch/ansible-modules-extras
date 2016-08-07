@@ -47,7 +47,7 @@ options:
     required: true
   state:
     description:
-      - To create or remove the CA. Present or absent: default is present.
+      - To create or remove the CA. Present or absent: Default is C(prsent).
     required: false
     default: present
     choices: [ "present", "absent" ]

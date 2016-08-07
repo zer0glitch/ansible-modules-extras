@@ -47,13 +47,13 @@ options:
     required: false
   state:
     description:
-      - To create or remove the CA. Present or absent: default is present.
+      - To create or remove the CA. Present or absent: Default is C(present).
     required: false
     default: present
     choices: [ "present", "absent" ]
   certtype:
     description:
-      - The certificate type.  Values: keystore or truststore
+      - The certificate type.  Values: keystore or truststore: Default is C(truststore).
     required: false
     default: truststore
     choices: [ "keystore", "truststore" ]
