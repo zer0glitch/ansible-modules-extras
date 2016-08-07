@@ -30,7 +30,7 @@ author:
 version_added: 2.2
 options:
   cadir:
-    description:
+    description: 
       - The directory to store the certificate
     required: true
   certname:
@@ -47,7 +47,7 @@ options:
     required: true
   state:
     description:
-      - To create or remove the CA. Present or absent: Default is C(prsent).
+      - To create or remove the CA. Present or absent. Default is C(prsent).
     required: false
     default: present
     choices: [ "present", "absent" ]
