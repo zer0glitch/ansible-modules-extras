@@ -379,7 +379,7 @@ class Certificate:
 
     def export_key_as_PKCS12(self):
         passwordFile = self.get_target_path() + "/" +  self.certname + ".password"
-        f =  open(passwordFile, "w"):
+        f =  open(passwordFile, "w")
         f.write(self.p12password)
         f.close()
         cmd = TMPL_PKCS12.format(self.certname, passwordFile, self.cadir)
