@@ -357,7 +357,8 @@ class CA:
         dirPrivate = "private"
 
         if not os.path.exists(dirPrivate):
-            os.makedirs(dirPrivate, mode=0700)
+            os.makedirs(dirPrivate)
+            os.chmod(dirPrivate, 0700)
             changes.append("Created private directory.")
             changed = True
 

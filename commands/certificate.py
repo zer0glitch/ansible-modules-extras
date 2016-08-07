@@ -387,10 +387,16 @@ class Certificate:
         os.remove(passwordFile)
 
     def get_openssl_cnf(self):
-        return self.cadir + "/server/" + self.certname  if self.isServerCert else self.cadir
+        if self.isServerCert:
+          return self.cadir + "/server/" + self.certname
+        else:
+          return self.cadir
 
     def get_target_path(self):
-        return self.cadir + "/server/" + self.certname  if self.isServerCert else self.cadir + "/client"
+        if self.isServerCert:
+          return self.cadir + "/server/" + self.certname  
+        else:
+          self.cadir + "/client"
         
     def validate_config(self):
         if not os.path.exists(self.cadir):
