@@ -380,8 +380,9 @@ class CA:
         fileIndexTxt = "index.txt"
 
         if not os.path.exists(fileIndexTxt):
-            with file(fileIndexTxt, "a"):
-                os.utime(fileIndexTxt, None)
+            open(fileIndexTxt, 'a').close()
+            #with file(fileIndexTxt, "a"):
+            #    os.utime(fileIndexTxt, None)
             changes.append("Created index.txt file")
             changed = True
 
