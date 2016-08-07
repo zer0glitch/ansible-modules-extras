@@ -40,13 +40,13 @@ requirements: [ openssl ]
 
 EXAMPLES = '''
 - name: Create a Server Cert
-  certificate: cadir="/etc/certs" hostname="server.example.com" subj="/DC=com/DC=example/CN=server/" p12password="{{some_env_var}}"
+  certificate: cadir="/etc/certs" certname="server.example.com" subj="/DC=com/DC=example/CN=server/" p12password="{{some_env_var}}"
 
 - name: Create a Client Cert
-  certificate: cadir="/etc/certs" hostname="client.example.com" subj="/DC=com/DC=example/CN=client/" p12password="{{some_env_var}}" certtype="client"
+  certificate: cadir="/etc/certs" certname="client.example.com" subj="/DC=com/DC=example/CN=client/" p12password="{{some_env_var}}" certtype="client"
 
 - name: Remove a Server Cert
-  certificate: cadir="/etc/certs" hostname="server.example.com" subj="doesn't matter" p12password="blah!" state="absent"
+  certificate: cadir="/etc/certs" certname="server.example.com" subj="doesn't matter" p12password="blah!" state="absent"
 '''
 
 import os
